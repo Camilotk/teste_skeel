@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+from django.utils import timezone
 
 ACTIVE = 'Y'
 INACTIVE = 'N'
@@ -16,7 +17,10 @@ CONTRACT_CHOICES = (
 class JobVacancy (models.Model):
     title = models.CharField(max_length=50, null=False)
     description = models.TextField(null=False)
-    salary = models.FloatField(null=False)
+    initial_date = models.DateTimeField(default=timezone.now)
+    final_date = models.DateTimeField(blank=True, null=True)
+    initial_salary = models.FloatField(null=False)
+    final_salary = models.FloatField(null=False)
     contract_type = models.CharField(choices=CONTRACT_CHOICES, null=False, max_length=50)
     status = models.CharField(choices=CHOICE_ACTIVE, default=ACTIVE, blank=False, max_length=1)
 

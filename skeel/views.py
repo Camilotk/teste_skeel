@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.http import JsonResponse
 
-class ListJobVacancy(APIView):
+class CreateJobVacancy(APIView):
     def post(self, request):
         try:
             serializer = JobVacancySerializer(data=request.data)
@@ -16,3 +16,4 @@ class ListJobVacancy(APIView):
         except Exception:
             return JsonResponse({'mensagem': "Ocorreu um erro no servidor"},
                                 status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+

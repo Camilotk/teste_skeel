@@ -19,5 +19,5 @@ from django.conf.urls import url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url('skeel/', include('skeel.urls')),
+    url('api/', include('skeel.urls')),
 ]
