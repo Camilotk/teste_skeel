@@ -1,6 +1,6 @@
-from django.urls import path
+from django.conf.urls import url
 from .views import *
 
 urlpatterns = [
-#        path(r'', welcome_page, name='index'),
+        url(r'^vagas$', ListJobVacancy.as_view()),
 ]
