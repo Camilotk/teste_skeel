@@ -14,3 +14,6 @@ O teste requeria que: fosse construido um CRUD com as tabelas Vagas, Empresas e 
 # Dependencias:
 - djangorestframework
 - mysqlclient
+
+# Configuração
+- Criar um DB Mysql/Mariadb com qualquer nome - usei testeSkeel - e configurar o nome da DB, user e senha nas settings

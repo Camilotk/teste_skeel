@@ -18,7 +18,7 @@ class JobVacancy (models.Model):
     description = models.TextField(null=False)
     salary = models.FloatField(null=False)
     contract_type = models.CharField(choices=CONTRACT_CHOICES, null=False, max_length=50)
-    status = (max_length=1, choices=CHOICE_ACTIVE, default=ACTIVE, blank=False)
+    status = models.CharField(choices=CHOICE_ACTIVE, default=ACTIVE, blank=False, max_length=1)
 
     def __str__(self):
         return self.title
