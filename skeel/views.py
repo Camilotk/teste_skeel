@@ -15,5 +15,4 @@ class ListJobVacancy(APIView):
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         except Exception:
             return JsonResponse({'mensagem': "Ocorreu um erro no servidor"},
-                    status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-
+                                status=status.HTTP_500_INTERNAL_SERVER_ERROR)
