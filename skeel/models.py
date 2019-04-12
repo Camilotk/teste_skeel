@@ -4,9 +4,10 @@ from django.utils import timezone
 
 ACTIVE = 'A'
 INACTIVE = 'I'
-CHOICE_ACTIVE = (
-    ('A', _(u"Sim")),
-    ('I', _(u"Não")),
+CHOICE_STATUS = (
+    ('N', _(u"Não Iniciada")),
+    ('A', _(u"Em Andamento")),
+    ('C', _(u"Concluida")),
 )
 
 CONTRACT_CHOICES = (
@@ -31,8 +32,12 @@ class JobVacancy (models.Model):
     initial_salary = models.FloatField(null=False)
     final_salary = models.FloatField(null=False)
     contract_type = models.CharField(choices=CONTRACT_CHOICES, null=False, max_length=50)
-    status = models.CharField(choices=CHOICE_ACTIVE, default=ACTIVE, blank=False, max_length=1)
+    status = models.CharField(choices=CHOICE_STATUS, default=ACTIVE, blank=False, max_length=1)
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
+
+class Benefits(models.Model):
+    description = models.TextField(null=False)
+    job_vacancy = models.ForeignKey(JobVacancy, on_delete=models.PROTECT,related_name='benefits_vacancy')
