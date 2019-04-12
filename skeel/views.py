@@ -10,10 +10,15 @@ class CreateJobVacancy(APIView):
     def post(self, request):
         try:
             serializer = JobVacancySerializer(data=request.data)
+            company_id = request.data['company']
+            Company.objects.get(pk=company_id)
             if serializer.is_valid():
                 serializer.save()
                 return Response(serializer.data, status=status.HTTP_201_CREATED)
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        except Company.DoesNotExist:
+            return JsonResponse({"mensagem": "Empresa não registrada"},
+                    status=status.HTTP_404_NOT_FOUND)
         except Exception:
             return JsonResponse({"mensagem": "Ocorreu um erro com skeel/views.py/CreateJobVacancy"},
                                 status=status.HTTP_500_INTERNAL_SERVER_ERROR)
@@ -82,7 +87,7 @@ class DeleteJobByID(APIView):
             return JsonResponse({'mensagem': "Ocorreu um erro no servidor"},
                     status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-class CompanyList(APIView):
+class CreateCompany(APIView):
     def post(self, request):
         try:
             serializer = CompanySerializer(data=request.data)
@@ -93,4 +98,30 @@ class CompanyList(APIView):
                     status=status.HTTP_400_BAD_REQUEST)
         except Exception:
             return JsonResponse({'mensagem': "Ocorreu um erro no servidor"},
+                    status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+class ListCompany(APIView):
+    def post(self, request):
+        try:
+            company_list = Company.objects.all()
+            serializer = CompanySerializer(company_list, many=True)
+            return Response(serializer.data)
+        except Exception:
+            return JsonResponse({'mensagem': "Ocorreu um erro em skeel/views.py/CompanyList"},
+                    status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+class GetCompanyByID(APIView):
+    def post(self, request, pk):
+        try:
+            if pk <= "0":
+                return JsonResponse({"mensagem": "O ID tem que ser maior que 0"},
+                        status=status.HTTP_400_BAD_REQUEST)
+            company = Company.objects.get(pk=pk)
+            serializer = CompanySerializer(company)
+            return Response(serializer.data)
+        except Company.DoesNotExist:
+            return JsonResponse({"mensagem": "Empresa não existe"},
+                    status=status.HTTP_404_NOT_FOUND)
+        except Exception:
+            return JsonResponse({"mensagem": "Ocorreu um erro em skeel/views.py/GetCompanyByID"},
                     status=status.HTTP_500_INTERNAL_SERVER_ERROR)
