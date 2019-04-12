@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'cyrux.wsgi.application'
 DATABASES = {
    'default': {
        'ENGINE': 'django.db.backends.mysql',
-       'NAME': 'testeSkeel',
+       'NAME': 'API',
        'USER': 'cazevedo',
        'PASSWORD': '0707',
        'HOST': 'localhost',
