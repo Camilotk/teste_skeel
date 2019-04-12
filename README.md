@@ -29,6 +29,7 @@ Foi construido uma Web API utilizando o djangorestframewok para que os dados sej
     "name": "Nome",
     "cnpj": "CNPJ válido com ou sem pontuação",
     "description": "Descrição",
+    "location_city": "Cidade/UF",
     "email": "E-mail"
 }
 ```
@@ -36,18 +37,25 @@ Foi construido uma Web API utilizando o djangorestframewok para que os dados sej
 * modelo de requisição para nova vaga
 ```
 {
-    "title": "Título da Vaga",
-    "description": "Descrição da Vaga",
+    "title": "Nome",
+    "description": "Descrição",
     "initial_salary": 0,
     "final_salary": 9999,
     "contract_type": "CLT ou PJ",
-    "company": 1,
+    "company": 0,
+    "requirements_job": [
+        {
+            "description": "Requisito 1"
+        },
+        {
+            "description": "Requisito 2"
+        }
+    ],
     "benefits_job": [
         {
             "description": "Beneficio 1"
         },
         {
-            "id": 0,
             "description": "Beneficio 2"
         }
     ]
@@ -65,3 +73,5 @@ Foi construido uma Web API utilizando o djangorestframewok para que os dados sej
 | http://127.0.0.1:8000/api/empresa/nova/       | Cria nova empresa                                      |
 | http://127.0.0.1:8000/api/empresa/lista/      | Recebe JSON paginado com todas as empresas cadastradas |
 | http://127.0.0.1:8000/api/empresa/lista/(id)/ | Recebe JSON com os atributos da empresa consultrada    |
+| http://127.0.0.1:8000/api/empresa/edita/(id)/ | Edita empresa                                          |
+| http://127.0.0.1:8000/api/empresa/apaga/(id)/ | Apaga empresa                                          |

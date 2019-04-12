@@ -143,6 +143,7 @@ class EditCompanyByID(APIView):
                         status=status.HTTP_400_BAD_REQUEST)
             company = Company.objects.get(pk=pk)
             serializer = CompanySerializer(company, data=request.data)
+            cnpj = request.data['cnpj']
             if cpfcnpj.validate(cnpj) and serializer.is_valid():
                 serializer.save()
                 return Response(serializer.data)
