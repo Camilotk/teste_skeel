@@ -22,6 +22,7 @@ O teste requeria que: fosse construido um CRUD com as tabelas Vagas, Empresas e 
 
 # API
 Foi construido uma API REST utilizando o djangorestframewok para que os dados sejam enviados e trabalhados em JSON. Para utilizá-la por meio do Postman ou acesso do servidor basta enviar o post para o endereço da função desejada.
+
 | Link                                          | O que faz?                                             |
 |-----------------------------------------------|--------------------------------------------------------|
 | http://127.0.0.1:8000/api/vagas/nova/         | Cria nova vaga de trabalho                             |
