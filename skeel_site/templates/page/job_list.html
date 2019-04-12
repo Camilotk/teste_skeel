@@ -1,0 +1,16 @@
+{% extends 'page/base.html' %}
+
+{% block title %}
+Skeel
+{% endblock %}
+
+{% block content %}
+{% for job in jobs %}
+    <div>
+        <p>publicado em: {{ job.initial_date }}</p>
+        <h1><a href="">{{ job.title }}</a></h1>
+        <p>{{ job.description|linebreaksbr }}</p>
+    </div>
+{% endfor %}
+{% endblock %}
+
