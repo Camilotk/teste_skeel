@@ -18,6 +18,7 @@ class Company(models.Model):
     name = models.CharField(null=False, max_length=50)
     cnpj = models.CharField(null=False, max_length=20)
     description = models.TextField(null=True)
+    email = models.EmailField(null=False)
 
     def __str__(self):
         return self.name
