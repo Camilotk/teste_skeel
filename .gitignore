@@ -1,0 +1,7 @@
+# Compiled files
+*.pyc
+*.pyo
+
+# Logs and databases
+*.log
+*.db
