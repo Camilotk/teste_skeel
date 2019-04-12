@@ -23,6 +23,36 @@ O teste requeria que: fosse construido um CRUD com as tabelas Vagas, Empresas e 
 
 # API
 Foi construido uma Web API utilizando o djangorestframewok para que os dados sejam enviados e trabalhados em JSON. Para utilizá-la por meio do Postman ou acesso do servidor basta enviar o post para o endereço da função desejada.
+* modelo de requisição para nova empresa
+```
+{
+	"name": "Nome",
+    "cnpj": "CNPJ válido com ou sem pontuação",
+    "description": "descrição",
+    "email": "e-mail"
+}
+```
+
+* modelo de requisição para nova vaga
+```
+{
+    "title": "Título da Vaga",
+    "description": "Descrição da Vaga",
+    "initial_salary": 0,
+    "final_salary": 9999,
+    "contract_type": "CLT",
+    "company": 1,
+    "benefits_job": [
+        {
+            "description": "Beneficio 1"
+        },
+        {
+        	"id": 4,
+            "description": "Beneficio 2"
+        }
+    ]
+}
+```
 
 | Link                                          | O que faz?                                             |
 |-----------------------------------------------|--------------------------------------------------------|
