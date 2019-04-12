@@ -9,5 +9,6 @@ urlpatterns = [
         url(r'^vagas/deletar/(?P<pk>[0-9]+)/$', DeleteJobByID.as_view()),
         url(r'^empresas/nova/$', CreateCompany.as_view()),
         url(r'^empresas/lista/$', ListCompany.as_view()),
-        url(r'^empresas/lista/(?P<pk>[0-9]+)/$', GetCompanyByID.as_view())
+        url(r'^empresas/lista/(?P<pk>[0-9]+)/$', GetCompanyByID.as_view()),
+        url(r'^empresas/editar/(?P<pk>[0-9]+)/$', EditCompanyByID.as_view()),
 ]

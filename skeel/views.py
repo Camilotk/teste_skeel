@@ -3,6 +3,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from django.http import JsonResponse
+from pycpfcnpj import cpfcnpj
 from .serializers import *
 from .pagination import *
 
@@ -91,13 +92,14 @@ class CreateCompany(APIView):
     def post(self, request):
         try:
             serializer = CompanySerializer(data=request.data)
-            if serializer.is_valid():
+            cnpj = request.data['cnpj']
+            if cpfcnpj.validate(cnpj) and serializer.is_valid():
                 serializer.save()
                 return Response(serializer.data, status=status.HTTP_201_CREATED)
             return Response(serializer.errors,
                     status=status.HTTP_400_BAD_REQUEST)
         except Exception:
-            return JsonResponse({'mensagem': "Ocorreu um erro no servidor"},
+            return JsonResponse({"mensagem": "Ocorreu um erro no servidor"},
                     status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 class ListCompany(APIView):
@@ -124,4 +126,23 @@ class GetCompanyByID(APIView):
                     status=status.HTTP_404_NOT_FOUND)
         except Exception:
             return JsonResponse({"mensagem": "Ocorreu um erro em skeel/views.py/GetCompanyByID"},
+                    status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+class EditCompanyByID(APIView):
+    def post(self, request, pk):
+        try:
+            if pk <= "0":
+                return JsonResponse({"mensagem": "O ID tem que ser maior que 0"},
+                        status=status.HTTP_400_BAD_REQUEST)
+            company = Company.objects.get(pk=pk)
+            serializer = CompanySerializer(company, data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        except Company.DoesNotExist():
+            return JsonResponse({"mensagem": "A empresa não existe"},
+                    status=status.HTTP_400_BAD_REQUEST)
+        except Exception:
+            return JsonResponse({"mensagem": "Ocorreu um erro em skeel/views.py/EditCompanyByID"},
                     status=status.HTTP_500_INTERNAL_SERVER_ERROR)
