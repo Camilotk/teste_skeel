@@ -47,12 +47,13 @@ Foi construido uma Web API utilizando o djangorestframewok para que os dados sej
             "description": "Beneficio 1"
         },
         {
-        	"id": 4,
+            "id": 0,
             "description": "Beneficio 2"
         }
     ]
 }
 ```
+* para editar um beneficio da vaga é preciso usar id como em "Beneficio 2", toda a API está tratada contra valores 0
 
 | Link                                          | O que faz?                                             |
 |-----------------------------------------------|--------------------------------------------------------|
