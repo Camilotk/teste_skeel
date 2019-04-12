@@ -14,6 +14,20 @@ O teste requeria que: fosse construido um CRUD com as tabelas Vagas, Empresas e 
 # Dependencias:
 - djangorestframework
 - mysqlclient
+- pycpfcnpj
 
 # Configuração
-- Criar um DB Mysql/Mariadb com qualquer nome - usei testeSkeel - e configurar o nome da DB, user e senha nas settings
+- Criar um DB Mysql/Mariadb com qualquer nome e configurar o nome da DB, user e senha nas settings
+- Criar um super usuário
+
+# API
+| Link                                          | O que faz?                                             |
+|-----------------------------------------------|--------------------------------------------------------|
+| http://127.0.0.1:8000/api/vagas/nova/         | Cria nova vaga de trabalho                             |
+| http://127.0.0.1:8000/api/vagas/lista/        | Recebe JSON paginado com todas as vagas cadastradas    |
+| http://127.0.0.1:8000/api/vagas/lista/(id)/   | Recebe JSON com os atributos da vaga consultrada       |
+| http://127.0.0.1:8000/api/vagas/edita/(id)/   | Edita vaga de trabalho                                 |
+| http://127.0.0.1:8000/api/vagas/apaga/(id)/   | Apaga vaga de trabalho                                 |
+| http://127.0.0.1:8000/api/empresa/nova/       | Cria nova empresa                                      |
+| http://127.0.0.1:8000/api/empresa/lista/      | Recebe JSON paginado com todas as empresas cadastradas |
+| http://127.0.0.1:8000/api/empresa/lista/(id)/ | Recebe JSON com os atributos da empresa consultrada    |
