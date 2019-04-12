@@ -15,13 +15,14 @@ O teste requeria que: fosse construido um CRUD com as tabelas Vagas, Empresas e 
 - djangorestframework
 - mysqlclient
 - pycpfcnpj
+- drf-writable-nested
 
 # Configuração
 - Criar um DB Mysql/Mariadb com qualquer nome e configurar o nome da DB, user e senha nas settings
 - Criar um super usuário
 
 # API
-Foi construido uma API REST utilizando o djangorestframewok para que os dados sejam enviados e trabalhados em JSON. Para utilizá-la por meio do Postman ou acesso do servidor basta enviar o post para o endereço da função desejada.
+Foi construido uma Web API utilizando o djangorestframewok para que os dados sejam enviados e trabalhados em JSON. Para utilizá-la por meio do Postman ou acesso do servidor basta enviar o post para o endereço da função desejada.
 
 | Link                                          | O que faz?                                             |
 |-----------------------------------------------|--------------------------------------------------------|
