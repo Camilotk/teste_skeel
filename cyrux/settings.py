@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'cyrux.wsgi.application'
 DATABASES = {
    'default': {
        'ENGINE': 'django.db.backends.mysql',
-       'NAME': 'API',
+       'NAME': 'database_skeel',
        'USER': 'cazevedo',
        'PASSWORD': '0707',
        'HOST': 'localhost',
@@ -124,3 +124,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
