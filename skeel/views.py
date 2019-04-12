@@ -111,8 +111,10 @@ class ListCompany(APIView):
     def post(self, request):
         try:
             company_list = Company.objects.all()
+            paginator = CompanyPaginator()
+            result_page = paginator.paginate_queryset(company_list, request)
             serializer = CompanySerializer(company_list, many=True)
-            return Response(serializer.data)
+            return paginator.get_paginated_response(serializer.data)
         except Exception:
             return JsonResponse({'mensagem': "Ocorreu um erro em skeel/views.py/CompanyList"},
                     status=status.HTTP_500_INTERNAL_SERVER_ERROR)
@@ -150,4 +152,20 @@ class EditCompanyByID(APIView):
                     status=status.HTTP_400_BAD_REQUEST)
         except Exception:
             return JsonResponse({"mensagem": "Ocorreu um erro em skeel/views.py/EditCompanyByID"},
+                    status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+class DeleteCompanyByID(APIView):
+    def post(self, request, pk):
+        try:
+            if pk == "0":
+                return JsonResponse({'mensagem': "O ID deve ser maior que zero."},
+                        status=status.HTTP_400_BAD_REQUEST)
+            company = Company.objects.get(pk = pk)
+            company.delete()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        except Company.DoesNotExist:
+            return JsonResponse({'mensagem': "A empresa não existe"},
+                    status=status.HTTP_404_NOT_FOUND)
+        except Exception:
+            return JsonResponse({'mensagem': "Ocorreu um erro no servidor"},
                     status=status.HTTP_500_INTERNAL_SERVER_ERROR)
