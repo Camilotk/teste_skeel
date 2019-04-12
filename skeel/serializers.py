@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from drf_writable_nested import WritableNestedModelSerializer
 from .models import *
 
 class BenefitsSerializer(serializers.ModelSerializer):
@@ -6,7 +7,7 @@ class BenefitsSerializer(serializers.ModelSerializer):
         model=Benefits
         fields = ["id", "description", ]
 
-class JobVacancySerializer(serializers.ModelSerializer):
+class JobVacancySerializer(WritableNestedModelSerializer):
     benefits_jobs = BenefitsSerializer(many=True)
     class Meta:
         model = JobVacancy
