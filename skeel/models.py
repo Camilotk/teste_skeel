@@ -2,11 +2,11 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.utils import timezone
 
-ACTIVE = 'Y'
-INACTIVE = 'N'
+ACTIVE = 'A'
+INACTIVE = 'I'
 CHOICE_ACTIVE = (
-    ('Y', _(u"Sim")),
-    ('N', _(u"Não")),
+    ('A', _(u"Sim")),
+    ('I', _(u"Não")),
 )
 
 CONTRACT_CHOICES = (
