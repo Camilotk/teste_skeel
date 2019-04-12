@@ -1,9 +1,10 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
-from .serializers import *
 from rest_framework.response import Response
 from rest_framework import status
 from django.http import JsonResponse
+from .serializers import *
+from .pagination import *
 
 class CreateJobVacancy(APIView):
     def post(self, request):
@@ -21,8 +22,10 @@ class ListJobVacancy(APIView):
     def post(self, request):
         try:
             jobs_list = JobVacancy.objects.all()
-            serializer = JobVacancySerializer(jobs_list, many=True)
-            return Response(serializer.data)
+            paginator = VacancyPaginator()
+            result_page = paginator.paginate_queryset(jobs_list, request)
+            serializer = JobVacancySerializer(result_page, many=True)
+            return paginator.get_paginated_response(serializer.data)
         except Exception:
             return JsonResponse({"mensagem": "Ocorreu um erro com skeel/views.py/ListJobVacancy"},
                     status=status.HTTP_500_INTERNAL_SERVER_ERROR)
@@ -45,9 +48,8 @@ class GetJobByID(APIView):
 
 
 class EditJobByID(APIView):
-    def put(self, request, pk):
+    def post(self, request, pk):
         try:
-            return JsonResponse({"mensagem": "aqui"})
             if pk <= "0":
                 return JsonResponse({"mensagem": "O ID deve ser maior que zero."},
                         status=status.HTTP_400_BAD_REQUEST)
@@ -63,3 +65,19 @@ class EditJobByID(APIView):
         except Exception:
             return JsonResponse({"mensagem": "Ocorreu um erro com skeel/views.py/GetJobByID.put())"},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+class DeleteJobByID(APIView):
+    def post(self, request, pk):
+        try:
+            if pk <= "0":
+                return JsonResponse({'mensagem': "O ID deve ser maior que zero."},
+                        status=status.HTTP_400_BAD_REQUEST)
+            vacancy = JobVacancy.objects.get(pk=pk)
+            vacancy.delete()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        except Vaga.DoesNotExist:
+            return JsonResponse({'mensagem': "A vaga não existe"},
+                    status=status.HTTP_404_NOT_FOUND)
+        except Exception:
+            return JsonResponse({'mensagem': "Ocorreu um erro no servidor"},
+                    status=status.HTTP_500_INTERNAL_SERVER_ERROR)
