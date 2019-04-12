@@ -42,9 +42,12 @@ class GetJobByID(APIView):
         except Exception:
             return JsonResponse({"mensagem": "Ocorreu um erro com skeel/views.py/GetJobByID.post()"},
                                 status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-    
+
+
+class EditJobByID(APIView):
     def put(self, request, pk):
         try:
+            return JsonResponse({"mensagem": "aqui"})
             if pk <= "0":
                 return JsonResponse({"mensagem": "O ID deve ser maior que zero."},
                         status=status.HTTP_400_BAD_REQUEST)
