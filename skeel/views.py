@@ -61,12 +61,17 @@ class EditJobByID(APIView):
                         status=status.HTTP_400_BAD_REQUEST)
             vacancy = JobVacancy.objects.get(pk=pk)
             serializer = JobVacancySerializer(vacancy, data=request.data)
+            company_id = request.data["company"]
+            Company.objects.get(pk=company_id)
             if serializer.is_valid():
                 serializer.save()
                 return Response(serializer.data)
             return Response(serializer.error, status=status.HTTP_400_BAD_REQUEST)
         except JobVacancy.DoesNotExist:
             return JsonResponse({"mensagem": "Isso non ecziste!"},
+                    status=status.HTTP_404_NOT_FOUND)
+        except Company.DoesNotExist:
+            return JsonResponse({"mensagem": "A companhia da relação não existe"},
                     status=status.HTTP_404_NOT_FOUND)
         except Exception:
             return JsonResponse({"mensagem": "Ocorreu um erro com skeel/views.py/GetJobByID.put())"},
@@ -136,11 +141,11 @@ class EditCompanyByID(APIView):
                         status=status.HTTP_400_BAD_REQUEST)
             company = Company.objects.get(pk=pk)
             serializer = CompanySerializer(company, data=request.data)
-            if serializer.is_valid():
+            if cpfcnpj.validate(cnpj) and serializer.is_valid():
                 serializer.save()
                 return Response(serializer.data)
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-        except Company.DoesNotExist():
+        except Company.DoesNotExist:
             return JsonResponse({"mensagem": "A empresa não existe"},
                     status=status.HTTP_400_BAD_REQUEST)
         except Exception:
