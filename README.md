@@ -26,10 +26,10 @@ Foi construido uma Web API utilizando o djangorestframewok para que os dados sej
 * modelo de requisição para nova empresa
 ```
 {
-	"name": "Nome",
+    "name": "Nome",
     "cnpj": "CNPJ válido com ou sem pontuação",
-    "description": "descrição",
-    "email": "e-mail"
+    "description": "Descrição",
+    "email": "E-mail"
 }
 ```
 
@@ -40,7 +40,7 @@ Foi construido uma Web API utilizando o djangorestframewok para que os dados sej
     "description": "Descrição da Vaga",
     "initial_salary": 0,
     "final_salary": 9999,
-    "contract_type": "CLT",
+    "contract_type": "CLT ou PJ",
     "company": 1,
     "benefits_job": [
         {
