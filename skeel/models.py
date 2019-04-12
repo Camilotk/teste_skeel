@@ -40,4 +40,4 @@ class JobVacancy (models.Model):
 
 class Benefits(models.Model):
     description = models.TextField(null=False)
-    job_vacancy = models.ForeignKey(JobVacancy, on_delete=models.PROTECT,related_name='benefits_vacancy')
+    job_vacancy = models.ForeignKey(JobVacancy, on_delete=models.CASCADE, related_name='benefits_job')
