@@ -70,8 +70,8 @@ Foi construido uma Web API utilizando o djangorestframewok para que os dados sej
 | http://127.0.0.1:8000/api/vagas/lista/(id)/   | Recebe JSON com os atributos da vaga consultrada       |
 | http://127.0.0.1:8000/api/vagas/edita/(id)/   | Edita vaga de trabalho                                 |
 | http://127.0.0.1:8000/api/vagas/apaga/(id)/   | Apaga vaga de trabalho                                 |
-| http://127.0.0.1:8000/api/empresa/nova/       | Cria nova empresa                                      |
-| http://127.0.0.1:8000/api/empresa/lista/      | Recebe JSON paginado com todas as empresas cadastradas |
-| http://127.0.0.1:8000/api/empresa/lista/(id)/ | Recebe JSON com os atributos da empresa consultrada    |
-| http://127.0.0.1:8000/api/empresa/edita/(id)/ | Edita empresa                                          |
-| http://127.0.0.1:8000/api/empresa/apaga/(id)/ | Apaga empresa                                          |
+| http://127.0.0.1:8000/api/empresas/nova/       | Cria nova empresa                                      |
+| http://127.0.0.1:8000/api/empresas/lista/      | Recebe JSON paginado com todas as empresas cadastradas |
+| http://127.0.0.1:8000/api/empresas/lista/(id)/ | Recebe JSON com os atributos da empresa consultrada    |
+| http://127.0.0.1:8000/api/empresas/edita/(id)/ | Edita empresa                                          |
+| http://127.0.0.1:8000/api/empresas/apaga/(id)/ | Apaga empresa                                          |
