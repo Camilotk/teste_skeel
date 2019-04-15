@@ -25,25 +25,26 @@
                     </span>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
+                    {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link " href="{% url 'job_edit' %}"><p>Nova Vaga</p></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link " href="{% url 'company_edit' %}"><p>Nova Empresa</p></a>
                     </li>
-
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link " href="#"><p>Sobre Nós</p></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="#"><p>Contato</p></a>
+                    </li>
+                    {% endif %}
                     <li class="nav-item nave__item__Loggin" style="">
                         <button type="button" id="header-access-link" class="btn btn-primary btn-sm  flex-row align-center">
-                            <a rel="nofollow">Entrar</a>
+                            <a href="{% url 'admin:index' %}" rel="nofollow">Entrar</a>
                         </button>
                     </li>
-                    
-                    <li class="nav-item nave__item__Logged" style="display:none">
-                        <p class="nav-link ">Olá, <strong class="user-name"></strong>!</p>
-                        <a class="nav-link " id="logout" rel="nofollow" href="/usuario/logout">
-                            Sair
-                        </a>
-
                     </li>
                 </ul>
             </div>
