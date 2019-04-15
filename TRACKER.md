@@ -22,6 +22,11 @@ Aqui está o acompanhamento do projeto e execução da tarefa
 - [x] Adicionar um template no Django Admin para que fique mais amigável
 - [x] Permitir a Internacionalização completa do sistema utilizando traduções do Django
 - [x] Integrar front e API
-- [ ] Criar formulários para criar Empregos/Vagas
+- [x] Criar formulários para criar Empregos/Vagas
+- [x] Adicionar paginação
+- [x] Adicionar autenticação
+- [ ] Criar uma visualização por item
 - [ ] Adicionar ordenação no retorno de paginação da API
+- [ ] Colocar na view dos formulários para mandar por POST para API
+- [ ] Adicionar botões de edição/apagar nos itens da página principal para os formulários
 - _em produção!_
