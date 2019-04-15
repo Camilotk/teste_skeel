@@ -28,11 +28,27 @@ Vagas de Emprego - Work Brazil | Empregos
                 <a href="#" class="job-vacancy">
                     <div class="job-vacancy-header">
                     <h6 class="job-vacancy-ocupation">{{ item.title }}</h6>
-                    <p class="job-company-description"> Descrição da empresa ....... </p>
+                    <p class="job-company-description"> 
+                    {% if user.is_authenticated %}        
+                        {% for company in companies %}
+                           {% if company.id == item.company %}
+                                Empresa: <strong> {{ company.name }} </strong>
+                           {% endif %}
+                        {% endfor %}
+                    {% else %}
+                         Nome da Empresa apenas para cadastrados
+                    {% endif %}
+                    </p>
                     </div>
                     <div class="job-vacancy-details">
                         <div class="job-vacancy-moredetails">
-                            <p class="job-vacancy-location">&nbspCidade/UF</p>
+                            <p class="job-vacancy-location">
+                            {% for company in companies %}
+                                {% if company.id == item.company %}
+                                    {{ company.location_city }}
+                                {% endif %}
+                            {% endfor %}
+                            </p>
                         </div>
                         <p class="job-vacancy-description">{{ item.description|linebreaksbr }}</p>
                     </div>
