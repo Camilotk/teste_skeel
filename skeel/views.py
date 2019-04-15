@@ -25,7 +25,7 @@ class CreateJobVacancy(APIView):
                                 status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 class ListJobVacancy(APIView):
-    def post(self, request):
+    def get(self, request):
         try:
             jobs_list = JobVacancy.objects.all()
             paginator = VacancyPaginator()

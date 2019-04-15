@@ -32,7 +32,6 @@ Vagas de Emprego - Work Brazil | Empregos
                     </div>
                     <div class="job-vacancy-details">
                         <div class="job-vacancy-moredetails">
-                            <!-- <p class="job-vacancy-salary">R$ {{job.initial_salary}} - </p> -->
                             <p class="job-vacancy-location">&nbspCidade/UF</p>
                         </div>
                         <p class="job-vacancy-description">{{ job.description|linebreaksbr }}</p>
@@ -41,8 +40,9 @@ Vagas de Emprego - Work Brazil | Empregos
             </div>
         {% endfor %}
     </div>
-
 </div>
+
+{{ data }}
 
 {% endblock %}
 
