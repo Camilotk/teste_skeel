@@ -32,6 +32,18 @@
                     <li class="nav-item">
                         <a class="nav-link " href="{% url 'company_edit' %}"><p>Nova Empresa</p></a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'admin:index' %}" rel="nofollow">
+                            <p>Painel de Administração</p>
+                        </a>
+                    </li>
+                    <li class="nav-item nave__item__Loggin" style="">
+                        <button type="button" class="btn btn-danger btn-sm flex-row align-center">
+                            <a href="{% url 'admin:logout' %}" rel="nofollow">
+                               Sair
+                            </a>
+                        </button>
+                    </li>
                     {% else %}
                     <li class="nav-item">
                         <a class="nav-link " href="#"><p>Sobre Nós</p></a>
@@ -39,12 +51,14 @@
                     <li class="nav-item">
                         <a class="nav-link " href="#"><p>Contato</p></a>
                     </li>
-                    {% endif %}
                     <li class="nav-item nave__item__Loggin" style="">
                         <button type="button" id="header-access-link" class="btn btn-primary btn-sm  flex-row align-center">
-                            <a href="{% url 'admin:index' %}" rel="nofollow">Entrar</a>
+                            <a href="{% url 'admin:index' %}" rel="nofollow">
+                                Entrar
+                            </a>
                         </button>
                     </li>
+                    {% endif %}
                     </li>
                 </ul>
             </div>
