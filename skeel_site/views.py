@@ -6,6 +6,10 @@ from skeel.models import JobVacancy
 from django.utils import timezone
 
 def job_list(request):
-    jobs = JobVacancy.objects.filter(initial_date__lte=timezone.now()).order_by('initial_date')
-    return render(request, 'page/job_list.html', {"jobs": jobs})
+    response = requests.get('http://127.0.0.1:8000/api/vagas/lista/')
+    results = response.json()
+    jobs = results['results']
+    return render(request, 'page/job_list.html', {
+        'jobs': jobs,
+    })
 
