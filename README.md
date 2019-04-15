@@ -16,6 +16,9 @@ O teste requeria que: fosse construido um CRUD com as tabelas Vagas, Empresas e 
 - mysqlclient
 - pycpfcnpj
 - drf-writable-nested
+- django-compressor
+- django-libsass
+- django-jet
 
 # Configuração
 - Criar um DB Mysql/Mariadb com qualquer nome e configurar o nome da DB, user e senha nas settings

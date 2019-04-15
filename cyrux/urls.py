@@ -18,6 +18,8 @@ from django.urls import path, include
 from django.conf.urls import url
 
 urlpatterns = [
+    url(r'^jet/', include('jet.urls', 'jet')),
     path('admin/', admin.site.urls),
     url('api/', include('skeel.urls')),
+    path('', include('skeel_site.urls')),
 ]

@@ -1,0 +1,58 @@
+{% load static %}
+{% load compress %}
+<html>
+    <head>
+        <title>
+            {% block title %}
+            {% endblock %}
+        </title>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        {% compress css %}
+            <link rel="stylesheet" href="{% static 'css/page.scss' %}" type="text/x-scss" charset=”utf-8">
+        {% endcompress %}
+    </head>
+    <body>
+        <header>
+            <section class="header">
+                <nav class="navbar navbar-expand-lg navbar-light bg-white">
+                    <a class="logo-header" href="/">
+                        <img src="{% static 'img/logo.png' %}" alt="Vagas de Emprego - Work Brazil | Empregos"></a>
+                    <span class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="material-icons menu-icon">menu</i>
+                    </span>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link " href="/quem-somos"><p>Quem Somos</p></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="/fale-conosco"><p>Fale Conosco</p></a>
+                    </li>
+
+                    <li class="nav-item nave__item__Loggin" style="">
+                        <button type="button" id="header-access-link" class="btn btn-primary btn-sm  flex-row align-center">
+                            <a rel="nofollow">Entrar</a>
+                        </button>
+                    </li>
+                    
+                    <li class="nav-item nave__item__Logged" style="display:none">
+                        <p class="nav-link ">Olá, <strong class="user-name"></strong>!</p>
+                        <a class="nav-link " id="logout" rel="nofollow" href="/usuario/logout">
+                            Sair
+                        </a>
+
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </section>
+</header>
+
+        <section class="content">
+            {% block content %}
+            {% endblock %}
+        </section>
+    </body>
+</html>

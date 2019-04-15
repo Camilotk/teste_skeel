@@ -1,0 +1,48 @@
+{% extends 'page/base.html' %}
+
+{% block title %}
+Vagas de Emprego - Work Brazil | Empregos
+{% endblock %}
+
+{% block content %}
+<section>
+        <div class="container flex-row justify-end">
+            <div class="col-sm-6 col-md-4 remove__padding jobs__order">
+                <div class="form-group flex-row align-items-center justify-end">
+                    <label class="col-sm-6 col-md-6 flex-row justify-end" for="jobsOrderSelect">Ordenar por:</label>
+                    <select id="jobsOrderSelect" class="form-control col-sm-6 col-md-6">
+                            <option label="Últimas Vagas" value="1" selected="">Últimas Vagas</option>
+
+                            <option label="Maior Salário" value="2">Maior Salário</option>
+
+                            <option label="PCD" value="3">PCD</option>
+                    </select>
+           </div>
+       </div>
+    </div>
+</section>
+<div class="container">
+    <div id="jobs-wrapper" class="row">
+          {% for job in jobs %}
+            <div class="col-xs-12 col-sm-6 col-md-4 col-xl-3 job-wrapper">
+                <a href="#" class="job-vacancy">
+                    <div class="job-vacancy-header">
+                    <h6 class="job-vacancy-ocupation">{{ job.title }}</h6>
+                    <p class="job-company-description"> Descrição da empresa ....... </p>
+                    </div>
+                    <div class="job-vacancy-details">
+                        <div class="job-vacancy-moredetails">
+                            <!-- <p class="job-vacancy-salary">R$ {{job.initial_salary}} - </p> -->
+                            <p class="job-vacancy-location">&nbspCidade/UF</p>
+                        </div>
+                        <p class="job-vacancy-description">{{ job.description|linebreaksbr }}</p>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+{% endblock %}
+
