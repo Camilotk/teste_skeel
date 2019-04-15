@@ -108,7 +108,7 @@ class CreateCompany(APIView):
                     status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 class ListCompany(APIView):
-    def post(self, request):
+    def get(self, request):
         try:
             company_list = Company.objects.all()
             paginator = CompanyPaginator()

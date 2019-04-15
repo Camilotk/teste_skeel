@@ -3,7 +3,7 @@ import requests
 from .forms import *
 from django.shortcuts import render
 from django.template.defaulttags import register
-from skeel.models import JobVacancy
+from skeel.models import Company
 from django.utils import timezone
 from django.core.paginator import Paginator
 
@@ -12,11 +12,13 @@ def job_list(request, page_number=1):
     results = response.json()
     jobs = results['results']
     actual_page = int(page_number)
+    companies = Company.objects.all()
     return render(request, 'page/job_list.html', {
         'jobs': results,
         'data': jobs,
         'previous_page': actual_page - 1,
         'next_page': actual_page + 1,
+        'companies': companies,
     })
 
 def job_new(request):
