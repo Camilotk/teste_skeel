@@ -1,17 +1,22 @@
 import json
 import requests
+from .forms import *
 from django.shortcuts import render
 from django.template.defaulttags import register
 from skeel.models import JobVacancy
 from django.utils import timezone
-from .forms import *
+from django.core.paginator import Paginator
 
-def job_list(request):
-    response = requests.get('http://127.0.0.1:8000/api/vagas/lista/')
+def job_list(request, page_number=1):
+    response = requests.get('http://127.0.0.1:8000/api/vagas/lista/?page={}'.format(page_number))
     results = response.json()
     jobs = results['results']
+    actual_page = int(page_number)
     return render(request, 'page/job_list.html', {
-        'jobs': jobs,
+        'jobs': results,
+        'data': jobs,
+        'previous_page': actual_page - 1,
+        'next_page': actual_page + 1,
     })
 
 def job_new(request):

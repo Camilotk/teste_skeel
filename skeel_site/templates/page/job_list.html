@@ -23,18 +23,18 @@ Vagas de Emprego - Work Brazil | Empregos
 </section>
 <div class="container">
     <div id="jobs-wrapper" class="row">
-          {% for job in jobs %}
+          {% for item in data %}
             <div class="col-xs-12 col-sm-6 col-md-4 col-xl-3 job-wrapper">
                 <a href="#" class="job-vacancy">
                     <div class="job-vacancy-header">
-                    <h6 class="job-vacancy-ocupation">{{ job.title }}</h6>
+                    <h6 class="job-vacancy-ocupation">{{ item.title }}</h6>
                     <p class="job-company-description"> Descrição da empresa ....... </p>
                     </div>
                     <div class="job-vacancy-details">
                         <div class="job-vacancy-moredetails">
                             <p class="job-vacancy-location">&nbspCidade/UF</p>
                         </div>
-                        <p class="job-vacancy-description">{{ job.description|linebreaksbr }}</p>
+                        <p class="job-vacancy-description">{{ item.description|linebreaksbr }}</p>
                     </div>
                 </a>
             </div>
@@ -42,7 +42,13 @@ Vagas de Emprego - Work Brazil | Empregos
     </div>
 </div>
 
-{{ data }}
-
+    <div class="pagination">
+    {% if jobs.previous %}
+        <a href="/p/{{ previous_page }}/">❮</a>
+    {% endif %}
+    {% if jobs.next %}
+        <a href="/p/{{ next_page }}/">❯</a>
+    {% endif %}
+    </div>
 {% endblock %}
 
