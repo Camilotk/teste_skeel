@@ -16,7 +16,7 @@ Aqui está o acompanhamento do projeto e execução da tarefa
 - [x] Fazer gravação de múltiplos campos de Beneficios/Requisitos via JSON
 - **concluído**
 
-# Etapas, parte II
+# Etapas II
 - [x] Iniciar a aplicação do Site _front_
 - [x] Configurar rotas para irem a _Home_ quando o localhost é acessado
 - [x] Adicionar um template no Django Admin para que fique mais amigável

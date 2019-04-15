@@ -41,8 +41,8 @@ Foi construido uma Web API utilizando o djangorestframewok para que os dados sej
 ```
 * para editar um beneficio da vaga é preciso usar id como em "Beneficio 2", toda a API está tratada contra valores 0
 
-| Link                                           |Método | O que faz?                                             |
-|------------------------------------------------|--------------------------------------------------------|
+| Link                                           |Método | O que faz?                                            |
+|------------------------------------------------|-------|-------------------------------------------------------|
 | http://127.0.0.1:8000/api/vagas/nova/          | POST  |Cria nova vaga de trabalho                             |
 | http://127.0.0.1:8000/api/vagas/lista/         | GET   |Recebe JSON paginado com todas as vagas cadastradas    |
 | http://127.0.0.1:8000/api/vagas/lista/(id)/    | POST  |Recebe JSON com os atributos da vaga consultrada       |
