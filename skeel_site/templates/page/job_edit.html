@@ -1,10 +1,51 @@
-{% extends 'blog/base.html' %}
+{% extends 'page/base.html' %}
+{% load crispy_forms_tags %}
 
 {% block content %}
-    <h1>Nova Vaga</h1>
-    <form method="POST" class="post-form">
+<div class="contact-us">
+    <h3 class="my-title vacancy-title">Nova Vaga</h3>
+    <form method="POST" class="flex-row flex-wrap">
+        <div class="form-container flex-row flex-wrap">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Salvar</button>
+        <div class="row row-extend">
+            <div class="col-12">
+                {{ form.title|as_crispy_field }}
+            </div>
+        </div>
+        <div class="row row-extend">
+            <div class="col-6">
+                {{ form.company|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                {{ form.status|as_crispy_field }}
+            </div>
+        </div>
+        <div class="row row-extend">
+            <div class="col-6">
+                {{ form.initial_salary|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                {{ form.final_salary|as_crispy_field }}
+            </div>
+        </div>
+        <div class="row row-extend">
+            <div class="col-6">
+                {{ form.initial_date|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                {{ form.final_date|as_crispy_field }}
+            </div>
+        </div>
+        <div class="row row-extend">
+            <div class="col-12">
+                {{ form.contract_type|as_crispy_field }}
+            </div>
+        </div>
+        <div class="text-register-form row-extend">
+            {{ form.description|as_crispy_field }}
+        </div>
+        <button type="submit" class="my-button btn btn-primary">Salvar</button>
+        </div>
     </form>
+</div>
 {% endblock %}

@@ -11,6 +11,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         {% compress css %}
             <link rel="stylesheet" href="{% static 'css/page.scss' %}" type="text/x-scss" charset=”utf-8">
+            <link rel="stylesheet" href="{% static 'css/form.scss' %}" type="text/x-scss" charset=”utf-8">
         {% endcompress %}
     </head>
     <body>
@@ -25,10 +26,10 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link " href="/quem-somos"><p>Quem Somos</p></a>
+                        <a class="nav-link " href="{% url 'job_edit' %}"><p>Nova Vaga</p></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="/fale-conosco"><p>Fale Conosco</p></a>
+                        <a class="nav-link " href="{% url 'company_edit' %}"><p>Nova Empresa</p></a>
                     </li>
 
                     <li class="nav-item nave__item__Loggin" style="">

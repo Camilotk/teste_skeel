@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'skeel',
     'rest_framework',
     'compressor',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -140,3 +141,5 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'compressor.finders.CompressorFinder',
 )
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

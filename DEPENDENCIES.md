@@ -14,4 +14,5 @@
 - django-compressor
 - django-libsass
 - django-jet
+- django-crispy-forms
 - requests (normalmente é instalado por padrão, mas é interssante checar)

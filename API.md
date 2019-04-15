@@ -1,5 +1,5 @@
 # API
-Foi construido uma Web API utilizando o djangorestframewok para que os dados sejam enviados e trabalhados em JSON. Para utilizá-la por meio do Postman ou acesso do servidor basta enviar o post para o endereço da função desejada.
+Foi construido uma Web API utilizando o djangorestframewok para que os dados sejam enviados e trabalhados em JSON. Para utilizá-la por meio do **Postman** - _testado e funcionando_ - ou acesso do servidor basta enviar o post para o endereço da função desejada.
 
 * modelo de requisição para nova empresa
 ```

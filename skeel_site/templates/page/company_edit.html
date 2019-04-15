@@ -1,10 +1,38 @@
-{% extends 'blog/base.html' %}
-
+{% extends 'page/base.html' %}
+{% load crispy_forms_tags %}
+.
 {% block content %}
-    <h1>Nova Empresa</h1>
-    <form method="POST" class="post-form">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Salvar</button>
-    </form>
+<div class="contact-us">
+    <h3 class="my-title company-title">Nova Empresa</h3>
+     <form method="post" novalidate class="flex-row flex-wrap">
+     <div class="form-container flex-row flex-wrap">
+    {% csrf_token %}
+    <div class="row row-extend">
+        <div class="col-12">
+            {{ form.name|as_crispy_field }}
+        </div>
+    </div>
+    <div class="row row-extend">
+    <div class="col-6">
+      {{ form.cnpj|as_crispy_field }}
+    </div>
+    <div class="col-6">
+    {{ form.email|as_crispy_field }}
+    </div>
+    </div>
+    <div class="row row-extend">
+      <div class="col-6">
+        {{ form.location_city|as_crispy_field }}
+      </div>
+      <div class="col-6">
+        {{ form.phone|as_crispy_field }}
+      </div>
+    </div>
+    <div class="text-register-form row-extend">
+    {{ form.description|as_crispy_field }}
+    </div>
+        <button type="submit" class="my-button btn btn-primary">Salvar</button>
+    </div>
+  </form>
+</div>
 {% endblock %}

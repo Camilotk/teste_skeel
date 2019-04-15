@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css?family=Ruda:900&subset=latin-ext');
+
+.form-container {
+    background: white;
+    width: 590px;
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    left: 28%;
+    top: 12%;
+}
+
+.row-extend {
+    width: inherit;
+}
+
+.text-register-form {
+    margin: 0 20px;
+}
+
+.my-button {
+    margin: 0 20px 20px;
+}
+
+.my-title {
+    text-align: center;
+    font-family: 'Ruda', sans-serif;
+    font-size: 2.35em;
+    z-index: 1;
+    width: auto;
+    color: #007BFF;
+    text-shadow: 2px 1px lightgrey;
+}
+
+.vacancy-title {
+    position: absolute;
+    left: 59%;
+}
+
+.company-title {
+    position: absolute;
+    left: 54%;
+}
