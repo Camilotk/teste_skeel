@@ -19,10 +19,26 @@ O teste requeria que: fosse construido um CRUD com as tabelas Vagas, Empresas e 
 - django-compressor
 - django-libsass
 - django-jet
+- requests (normalmente é instalado por padrão, mas é interssante checar)
 
 # Configuração
 - Criar um DB Mysql/Mariadb com qualquer nome e configurar o nome da DB, user e senha nas settings
 - Criar um super usuário
+
+# Etapas I
+- [x] Inicializar o projeto
+- [x] Configurar de acordo com os padrões de código
+- [x] Criar e configurar o banco MYSQL
+- [x] Fazer os Models necessários
+- [x] Fazer a migração para o Banco
+- [x] Criar API
+- [x] Fazer **C**reate via POST na API
+- [x] Fazer **R**ead via POST na API
+- [x] Fazer **U**pdate via POST na API
+- [x] Fazer **D**elete via POST na API
+- [x] Fazer validações de integridade do BD
+- [x] Fazer gravação de múltiplos campos de Beneficios/Requisitos via JSON
+- **concluído**
 
 # API
 Foi construido uma Web API utilizando o djangorestframewok para que os dados sejam enviados e trabalhados em JSON. Para utilizá-la por meio do Postman ou acesso do servidor basta enviar o post para o endereço da função desejada.
@@ -78,3 +94,13 @@ Foi construido uma Web API utilizando o djangorestframewok para que os dados sej
 | http://127.0.0.1:8000/api/empresas/lista/(id)/ | Recebe JSON com os atributos da empresa consultrada    |
 | http://127.0.0.1:8000/api/empresas/edita/(id)/ | Edita empresa                                          |
 | http://127.0.0.1:8000/api/empresas/apaga/(id)/ | Apaga empresa                                          |
+
+# Etapas, parte II
+- [x] Iniciar a aplicação do Site _front_
+- [x] Configurar rotas para irem a _Home_ quando o localhost é acessado
+- [x] Adicionar um template no Django Admin para que fique mais amigável
+- [x] Permitir a Internacionalização completa do sistema utilizando traduções do Django
+- [ ] Integrar front e API
+- [ ] Criar formulários para criar Empregos/Vagas
+- [ ] Adicionar ordenação no retorno de paginação da API
+- _em produção!_
